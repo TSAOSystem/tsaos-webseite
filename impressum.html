@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Impressum – TSA.OS</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy:   #0d1e35;
+      --deep:   #060d1a;
+      --orange: #f97316;
+      --orange-dim: rgba(249,115,22,0.15);
+      --white:  #ffffff;
+      --muted:  rgba(255,255,255,0.45);
+      --border: rgba(255,255,255,0.08);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--deep);
+      color: var(--white);
+      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+      font-size: 15px;
+      line-height: 1.7;
+      min-height: 100vh;
+    }
+
+    /* ── TOP NAV ── */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(6,13,26,0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 14px 32px;
+    }
+
+    header a {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      color: var(--white);
+    }
+
+    .logo-mark {
+      width: 36px;
+      height: 36px;
+    }
+
+    .logo-text {
+      font-size: 18px;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+    }
+    .logo-text span { color: var(--orange); }
+
+    header nav {
+      margin-left: auto;
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    /* ── HERO BAR ── */
+    .hero {
+      background: linear-gradient(135deg, var(--navy) 0%, var(--deep) 100%);
+      border-bottom: 2px solid var(--orange);
+      padding: 56px 32px 40px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 60% 80% at 90% 50%, rgba(249,115,22,0.07) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .hero-inner {
+      max-width: 780px;
+      margin: 0 auto;
+      position: relative;
+    }
+
+    .hero-label {
+      display: inline-block;
+      background: var(--orange-dim);
+      color: var(--orange);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      padding: 4px 12px;
+      border-radius: 2px;
+      margin-bottom: 16px;
+    }
+
+    .hero h1 {
+      font-size: clamp(28px, 5vw, 42px);
+      font-weight: 900;
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+      margin-bottom: 10px;
+    }
+
+    .hero p {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    /* ── MAIN CONTENT ── */
+    main {
+      max-width: 780px;
+      margin: 0 auto;
+      padding: 48px 32px 80px;
+    }
+
+    .section {
+      margin-bottom: 40px;
+      padding-bottom: 40px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .section:last-child {
+      border-bottom: none;
+    }
+
+    .section-title {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--orange);
+      margin-bottom: 18px;
+    }
+
+    h2.block-title {
+      font-size: 20px;
+      font-weight: 800;
+      letter-spacing: -0.01em;
+      margin-bottom: 14px;
+      color: var(--white);
+    }
+
+    p, address {
+      font-style: normal;
+      color: rgba(255,255,255,0.75);
+      line-height: 1.8;
+    }
+
+    a {
+      color: var(--orange);
+      text-decoration: none;
+    }
+
+    a:hover { text-decoration: underline; }
+
+    .data-row {
+      display: flex;
+      gap: 24px;
+      flex-wrap: wrap;
+      margin-top: 8px;
+    }
+
+    .data-item {
+      background: rgba(13,30,53,0.6);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--orange);
+      padding: 14px 20px;
+      border-radius: 4px;
+      flex: 1;
+      min-width: 220px;
+    }
+
+    .data-item .label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--orange);
+      margin-bottom: 4px;
+    }
+
+    .data-item .value {
+      color: var(--white);
+      font-weight: 500;
+    }
+
+    .info-box {
+      background: rgba(13,30,53,0.5);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 20px 24px;
+      color: rgba(255,255,255,0.65);
+      font-size: 14px;
+      line-height: 1.75;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 24px 32px;
+      text-align: center;
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    footer .footer-mark { color: var(--orange); font-weight: 700; }
+
+    @media (max-width: 600px) {
+      header { padding: 12px 20px; }
+      .hero  { padding: 40px 20px 28px; }
+      main   { padding: 32px 20px 60px; }
+      .data-row { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <a href="/">
+    <!-- TSA Signet inline SVG (Negativ / weiß+orange auf dunkel) -->
+    <svg class="logo-mark" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect width="36" height="36" rx="4" fill="#0d1e35"/>
+      <text x="18" y="25" text-anchor="middle" font-family="Helvetica Neue, sans-serif"
+            font-weight="900" font-size="14" fill="#f97316" letter-spacing="-1">TSA</text>
+    </svg>
+    <span class="logo-text">TSA<span>.OS</span></span>
+  </a>
+  <nav>tsaos.de</nav>
+</header>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-inner">
+    <div class="hero-label">Rechtliches</div>
+    <h1>Impressum</h1>
+    <p>Angaben gemäß § 5 TMG</p>
+  </div>
+</div>
+
+<!-- MAIN -->
+<main>
+
+  <!-- BETREIBER -->
+  <div class="section">
+    <div class="section-title">§ 5 TMG – Diensteanbieter</div>
+    <h2 class="block-title">Angaben gemäß § 5 TMG</h2>
+    <div class="data-row">
+      <div class="data-item">
+        <div class="label">Inhaber</div>
+        <div class="value">Jackson Agbonkhese</div>
+      </div>
+      <div class="data-item">
+        <div class="label">Unternehmensbezeichnung</div>
+        <div class="value">Talentsoccer-Academy</div>
+      </div>
+      <div class="data-item">
+        <div class="label">Adresse</div>
+        <div class="value">Obere Wiesen 33<br>78166 Donaueschingen</div>
+      </div>
+    </div>
+    <div class="data-row" style="margin-top:12px;">
+      <div class="data-item">
+        <div class="label">Telefon</div>
+        <div class="value"><a href="tel:+4977160243953">+49 771 60243953</a></div>
+      </div>
+      <div class="data-item">
+        <div class="label">Mobil</div>
+        <div class="value"><a href="tel:+4917624107021">+49 176 24107021</a></div>
+      </div>
+      <div class="data-item">
+        <div class="label">E-Mail</div>
+        <div class="value"><a href="mailto:info@tsaos.de">info@tsaos.de</a></div>
+      </div>
+      <div class="data-item">
+        <div class="label">Website</div>
+        <div class="value"><a href="https://www.tsaos.de">www.tsaos.de</a></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- BILDQUELLEN -->
+  <div class="section">
+    <div class="section-title">Bildquellen</div>
+    <h2 class="block-title">Bildnachweise</h2>
+    <div class="info-box">Folgt bald.</div>
+  </div>
+
+  <!-- VERANTWORTLICH -->
+  <div class="section">
+    <div class="section-title">§ 55 Abs. 2 RStV</div>
+    <h2 class="block-title">Verantwortlich für den Inhalt</h2>
+    <div class="data-row">
+      <div class="data-item">
+        <div class="label">Person</div>
+        <div class="value">Jackson Agbonkhese</div>
+      </div>
+      <div class="data-item">
+        <div class="label">Adresse</div>
+        <div class="value">Obere Wiesen 33<br>78166 Donaueschingen</div>
+      </div>
+    </div>
+    <div class="data-row" style="margin-top:12px;">
+      <div class="data-item">
+        <div class="label">Telefon</div>
+        <div class="value"><a href="tel:+4977160243953">+49 771 60243953</a></div>
+      </div>
+      <div class="data-item">
+        <div class="label">Mobil</div>
+        <div class="value"><a href="tel:+4917624107021">+49 176 24107021</a></div>
+      </div>
+      <div class="data-item">
+        <div class="label">E-Mail</div>
+        <div class="value"><a href="mailto:info@tsaos.de">info@tsaos.de</a></div>
+      </div>
+      <div class="data-item">
+        <div class="label">Website</div>
+        <div class="value"><a href="https://www.tsaos.de">www.tsaos.de</a></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- URHEBERRECHT -->
+  <div class="section">
+    <div class="section-title">Urheberrecht</div>
+    <h2 class="block-title">Schutz der Inhalte</h2>
+    <div class="info-box">
+      Die Inhalte und Werke auf dieser Website – einschließlich Texte, Grafiken, Logos, Konzepte und Programme – sind urheberrechtlich geschützt. Vervielfältigung, Bearbeitung, Verbreitung und jede Art der Verwertung außerhalb der Grenzen des Urheberrechts bedürfen der schriftlichen Zustimmung des Inhabers.<br><br>
+      © <span id="year"></span> Jackson Agbonkhese – Talentsoccer-Academy · Alle Rechte vorbehalten.
+    </div>
+  </div>
+
+  <!-- HAFTUNGSAUSSCHLUSS -->
+  <div class="section">
+    <div class="section-title">Haftungshinweise</div>
+    <h2 class="block-title">Haftung für Inhalte</h2>
+    <div class="info-box">
+      Als Diensteanbieter sind wir gemäß § 7 Abs. 1 TMG für eigene Inhalte nach den allgemeinen Gesetzen verantwortlich. Nach §§ 8 bis 10 TMG sind wir jedoch nicht verpflichtet, übermittelte oder gespeicherte fremde Informationen zu überwachen. Bei Bekanntwerden von Rechtsverletzungen werden derartige Inhalte umgehend entfernt.
+    </div>
+
+    <h2 class="block-title" style="margin-top:24px;">Haftung für Links</h2>
+    <div class="info-box">
+      Unser Angebot enthält Links zu externen Websites Dritter, auf deren Inhalte wir keinen Einfluss haben. Für die Inhalte der verlinkten Seiten ist stets der jeweilige Anbieter oder Betreiber verantwortlich. Bei Bekanntwerden von Rechtsverletzungen werden betroffene Links umgehend entfernt.
+    </div>
+  </div>
+
+  <!-- STREITSCHLICHTUNG -->
+  <div class="section">
+    <div class="section-title">Streitschlichtung</div>
+    <h2 class="block-title">OS-Plattform / Verbraucherstreitbeilegung</h2>
+    <div class="info-box">
+      Wir sind nicht bereit oder verpflichtet, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.<br><br>
+      Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS) bereit:
+      <a href="https://ec.europa.eu/consumers/odr" target="_blank" rel="noopener">ec.europa.eu/consumers/odr</a>
+    </div>
+  </div>
+
+</main>
+
+<!-- FOOTER -->
+<footer>
+  <span class="footer-mark">TSA.OS</span> · Talent Soccer Academy ·
+  © <span id="footer-year"></span> Jackson Agbonkhese · Alle Rechte vorbehalten
+</footer>
+
+<script>
+  const y = new Date().getFullYear();
+  document.getElementById("year").textContent = y;
+  document.getElementById("footer-year").textContent = y;
+</script>
+</body>
+</html>
